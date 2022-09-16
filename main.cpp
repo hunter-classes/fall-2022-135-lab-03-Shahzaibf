@@ -12,6 +12,14 @@ int main()
   //Test for part B
   std::cout << "Minimum storage in East basin: " << get_min_east() << " billion gallons \n";
   std::cout << "Maximum storage in East basin " << get_max_east() << " billion gallons \n";
+
+  //test for part C
+  std::cout << "09/13/2018: " << compare_basins("09/13/2018") <<"\n";
+  std::cout << "09/17/2018: " << compare_basins("09/17/2018") <<"\n";
+
+  //test for part D
+  
+  
   
   return 0;
 }
