@@ -51,3 +51,31 @@ double get_min_east(){
     fin.close();
     return minimum;
 }
+
+double get_max_east(){
+    std::ifstream fin("Current_Reservoir_Levels.tsv");
+    if (fin.fail()) {
+        std::cerr << "File cannot be opened for reading. \n";
+        exit(1);
+    }
+
+    std::string junk;
+    getline(fin, junk);
+
+    std::string dData;
+    double eastSt;
+    double maximum = INT_MIN;
+
+    while (fin >> dData >> eastSt){
+        fin.ignore(INT_MAX,'\n');;
+        if (eastSt > maximum){
+            maximum = eastSt;
+        }
+    }
+    fin.close();
+    return maximum;
+}
+
+std::string compare_basins(std::string date){
+    
+}
