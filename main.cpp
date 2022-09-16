@@ -1,9 +1,12 @@
 // add your code as appropriate 
 #include <iostream>
 #include "reservoir.h"
+#include "reverseorder.h"
 
 int main()
 {
+  
+
   //Test for part A
   std::string date = "05/20/2018";
   std::cout << "Enter date: " << date << "\n";
@@ -18,8 +21,9 @@ int main()
   std::cout << "09/17/2018: " << compare_basins("09/17/2018") <<"\n";
 
   //test for part D
+  reverse_order("01/17/2018", "01/20/2018");
+  std::cout << "\n";
+  reverse_order("05/30/2018", "06/02/2018");
+  std::cout << "\n";
   
-  
-  
-  return 0;
-}
+} 
