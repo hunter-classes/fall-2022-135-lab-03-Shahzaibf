@@ -1,1 +1,53 @@
 // add your code
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <climits>
+#include "reservoir.h"
+#include <string>
+
+double get_east_storage(std::string date){
+    std::ifstream fin("Current_Reservoir_Levels.tsv");
+    if (fin.fail()) {
+        std::cerr << "File cannot be opened for reading. \n";
+        exit(1); // exit if failed to open the file
+}
+    std::string junk;
+    getline(fin,junk);
+
+    std::string dData;
+    double eastSt;
+
+    while(fin >> dData >> eastSt){
+        fin.ignore(INT_MAX, '\n');
+        if (dData == date){
+            return eastSt;
+        }
+    }
+    fin.close();
+    return 0;
+}
+
+double get_min_east(){
+    std::ifstream fin("Current_Reservoir_Levels.tsv");
+    if (fin.fail()) {
+        std::cerr << "File cannot be opened for reading. \n";
+        exit(1);
+    }
+
+    std::string junk;
+    getline(fin, junk);
+
+    std::string dData;
+    double eastSt;
+    double minimum = INT_MAX;
+
+    while (fin >> dData >> eastSt){
+        fin.ignore(INT_MAX,'\n');
+        if (eastSt < minimum){
+            minimum = eastSt;
+        }
+    }
+    fin.close();
+    return minimum;
+}
