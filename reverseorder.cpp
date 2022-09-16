@@ -66,8 +66,10 @@ void reverse_order(std::string date1, std::string date2){
         
         auto cout_buff = std::cout.rdbuf(oss.rdbuf());
         
-        std::cout << std::setw(2) << std::setfill('0') << std::to_string(month2) << "/" << std::setw(2) << std::setfill('0') << std::to_string(day2) << "/2018";
-        
+        std::cout << std::setw(2) << std::setfill('0') << std::to_string(month2);
+        std::cout << "/";
+        std::cout << std::setw(2) << std::setfill('0') << std::to_string(day2) << "/2018";
+            
         std::cout.rdbuf(cout_buff);
         
         std::string dayTemp = oss.str();
